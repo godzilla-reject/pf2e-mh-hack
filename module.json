@@ -1,0 +1,126 @@
+{
+    "name": "monster-hunter-hack",
+    "title": "Monster Hunter Hack",
+    "author": "Alex Hall",
+    "description": "A hack of PF2e for adventures in the world of Monster Hunter!",
+    "flags": {
+        "monster-hunter-hack": {
+            "pf2e-homebrew": {
+                "featTraits": {
+                    "hunter": {
+                        "label": "Hunter",
+                        "description": "A feat with this trait can only be taken by someone with Guild Hunter Training."
+                    },
+                    "specialized": {
+                        "label": "Specialized",
+                        "description": "When you take a Specialized feat, you must select one of it's specialization options. That feat then inherits the rarity of the specialization. A specialization of a feat can be retrained after a day of downtime at no cost."
+                    },
+                    "counter": {
+                        "label": "Counter",
+                        "description": "An action with this trait can be used as reaction, typically with differing effects when done so. Any reaction taken this way gains the move trait."
+                    },
+                    "mounting": {
+                        "label": "Mounting",
+                        "description": "A Strike with this trait deals mounting damage equal to a single roll of the weapon's unmodified damage dice. If an activity would increase a weapon's motion value (die size), it does not increase mounting damage, unless specified."
+                    }
+                },
+                "weaponTraits": {
+                    "heavy": {
+                        "label": "Heavy",
+                        "description": "A weapon with this trait will always have a Strength requirement. It adds 2x the wielders Strength modifier to damage, instead of just the modifier."
+                    }
+                }
+            }
+        }
+    },
+    "packs": [
+        {
+            "name": "weapons",
+            "label": "Weapons",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/weapons.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "conditions",
+            "label": "Conditions",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/conditions.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "backgrounds",
+            "label": "Backgrounds",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/backgrounds.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "archetypes",
+            "label": "Archetypes",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/archetypes.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "feats",
+            "label": "Feats",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/feats.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "feat-effects",
+            "label": "Feat Effects",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/feat-effects.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "mechanics",
+            "label": "Weapon Mechanics",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/mechanics.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        },
+        {
+            "name": "weap-actions",
+            "label": "Weapon Actions",
+            "type": "Item",
+            "system": "pf2e",
+            "path": "packs/weap-actions.db",
+            "entity": "Item",
+            "module": "monster-hunter-hack"
+        }
+    ],
+    "id": "monster-hunter-hack",
+    "authors": [
+        {
+            "name": "Alex Hall"
+        }
+    ],
+    "minimumCoreVersion": "0.8.0",
+    "compatibleCoreVersion": "9",
+    "compatibility": {
+        "minimum": 9,
+        "verified": 10
+    },
+    "version": "1.1",
+    "url": "https://github.com/godzilla-reject/pf2e-mh-hack",
+    "manifest": "https://raw.githubusercontent.com/godzilla-reject/pf2e-mh-hack/master/module.json",
+    "download": "https://github.com/godzilla-reject/pf2e-mh-hack/archive/refs/heads/main.zip"
+}
