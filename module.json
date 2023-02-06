@@ -22,7 +22,24 @@
                     "mounting": {
                         "label": "Mounting",
                         "description": "A Strike with this trait deals mounting damage equal to a single roll of the weapon's unmodified damage dice. If an activity would increase a weapon's motion value (die size), it does not increase mounting damage, unless specified."
+                    },
+                    "build-up": {
+                        "label": "Build-Up",
+                        "description": "This attack is particularly good at status or elementalblight build-up; if the weapon deals status or elemental damage, you can have all of the damage done by an action with this trait deal that damage instead."
+                    },
+                    "charged":{
+                        "label": "Charged",
+                        "description": "An action with this trait can have multiple actions spent on it to increase an effect of that action."
+                    },
+                    "follow-up":{
+                        "label": "Follow-Up",
+                        "description": "An action or activity with this trait will always state another action or activity. The first activity must always follow the listed one, even across turns or rounds."
+                    },
+                    "physical":{
+                        "label":"Physical",
+                        "description": "This attack is bad at delivering elemental damage and status build-up. Any element or status on the weapon deals minimum damage instead of rolling."
                     }
+
                 },
                 "weaponTraits": {
                     "heavy": {
