@@ -24,7 +24,7 @@ This fan-made project aims to make some alterations to the base Pathfinder 2e sy
 
 **Virtual Table Top Platform Licenses:**
 
-- This Game System for Foundry Virtual Tabletop is licensed under the [Limited License Agreement for module development 09/02/2020](https://foundryvtt.com/article/license/).
+- This Game Module for Foundry Virtual Tabletop is licensed under the [Limited License Agreement for module development 09/02/2020](https://foundryvtt.com/article/license/).
 
 ## Patch Notes
 
