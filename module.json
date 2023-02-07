@@ -130,6 +130,12 @@
             "name": "Alex Hall"
         }
     ],
+    "scripts": [
+        "packs/scripts/module.js"
+    ],
+    "templates": [
+        "templates/template.html"
+    ],
     "minimumCoreVersion": "0.8.0",
     "compatibleCoreVersion": "9",
     "compatibility": {
