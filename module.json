@@ -124,18 +124,6 @@
             "module": "monster-hunter-hack"
         }
     ],
-    "dependencies": [
-
-    ],
-    "conflicts": [
-      
-    ],
-    "esmodules": [
-      "scripts/module.js"
-    ],
-    "styles": [
-      "styles/module.css"
-    ],
     "id": "monster-hunter-hack",
     "authors": [
         {
