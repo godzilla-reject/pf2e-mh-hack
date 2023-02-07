@@ -1,1 +1,1 @@
-# pf2e-mh-hack
+# Guildfinder, a *Monster Hunter* Hack for *Pathfinder 2E*.
