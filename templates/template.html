@@ -1,3 +1,120 @@
+<!DOCTYPE>
+<title></title>
 <div class="tab custom" data-group="primary" data-tab="custom">
-    <p>You can put anything in here, this is the content of your tab</p>
-  </div>
+    <html lang="en">
+    <title></title>
+    <head>
+    </head>
+    <title></title>
+    <body>
+    <style>
+    .smallBox {
+        text-align: center;
+        color: rgb(0, 0, 0);
+        max-width: "50px";
+        width: "50px";
+        max-height: "100px";
+        margin: "100px";
+        margin-block: "100px";
+    }
+    </style>
+    <div>
+        <form>
+            <label for="number">Base Monster HP:</label>
+            <input type="number" title="number" placeholder="425" id="baseHP" min="1" size="3" value="425">
+            <br>
+            <label for="number2">Number of Monster Parts</label>
+            <input type="number" title="number2" placeholder="6"id="monParts" min="1" size="3" value="6">
+            <br>
+            <label for="number3">Number of Players</label>
+            <input type="number" title="number3" placeholder="4"id="playerCount" min="1" size="3" value="4">
+            <br><br>
+        </form>
+    </div>
+    <div>
+        <button id="update">Update</button>
+        <br><br>
+        <p>HP Adjusted for Player Count</p>
+        <p id="totalHP"></p>
+        <p>Head HP</p>
+        <p id="headHP"></p>
+        <p>Wing HP</p>
+        <p id="wingHP"></p>
+        <p>Back HP</p>
+        <p id="backHP"></p>
+        <p>Foreleg HP</p>
+        <p id="foreHP"></p>
+        <p>Hindleg HP</p>
+        <p id="hindHP"></p>
+        <p>Tail HP</p>
+        <p id="tailHP"></p>
+    </div>    
+    </body>
+    <script>
+        var bHP ;
+        var mPts ;
+        var pCount ;        
+        var basePHP ;
+        var newMaxHP ;
+        var headHP  ;
+        var wingHP ;
+        var backHP ;
+        var foreHP ;
+        var hindHP ;
+        var tailHP ;
+        var x =document.getElementById("update");
+        x.addEventListener("click",save);
+        x.addEventListener("click",save2);
+        x.addEventListener("click",save3);
+        x.addEventListener("click",cal1);
+        x.addEventListener("click",caladjHP);
+        x.addEventListener("click",calhead);
+        x.addEventListener("click",calwing);
+        x.addEventListener("click",calhind);
+        x.addEventListener("click",calfore);
+        x.addEventListener("click",caltail);
+        x.addEventListener("click",calback);
+        
+        function save(){
+          bHP = document.getElementById("baseHP").value;
+    }
+        function save2(){
+          mPts = document.getElementById("monParts").value;
+    }
+        function save3(){
+          pCount = document.getElementById("playerCount").value;
+    }
+        function cal1(){
+          basePHP = bHP / mPts;
+    }
+        function caladjHP(){
+          newMaxHP = bHP * pCount;
+    }
+        function calhead(){
+          headHP=basePHP * 3 ;
+    }
+        function calback(){
+          backHP=basePHP * 2.5 ;
+    }
+        function caltail(){
+          tailHP=basePHP * 2 ;
+    }
+        function calfore(){
+          foreHP=basePHP * 1.5 ;
+    }
+        function calhind(){
+          hindHP=basePHP * 1.75 ;
+    }
+        function calwing(){
+          wingHP=basePHP * 2 ;
+    };
+
+    document.getElementById("totalHP").innerHTML=newMaxHP
+    document.getElementById("headHP").innerHTML=Math.round(headHP)
+    document.getElementById("wingHP").innerHTML=Math.round(wingHP)
+    document.getElementById("backHP").innerHTML=Math.round(backHP)
+    document.getElementById("foreHP").innerHTML=Math.round(foreHP)
+    document.getElementById("hindHP").innerHTML=Math.round(hindHP)
+    document.getElementById("tailHP").innerHTML=Math.round(tailHP)
+        </script>
+    </html>
