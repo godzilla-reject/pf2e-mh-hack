@@ -17,38 +17,68 @@
         margin: "100px";
         margin-block: "100px";
     }
+    .input {
+   width: 200px;
+   float:left;
+}
+
+    .label {
+   width:65px;
+   float:left;
+}
     </style>
-    <div>
+    <div class="hit points">
         <form>
-            <label for="number">Base Monster HP:</label>
-            <input type="number" title="number" placeholder="425" id="baseHP" min="1" size="3" value="425">
+            <label for="number">Base Monster HP</label>
+            <input type="number" title="number" placeholder="0" id="baseHP" min="1">
             <br>
-            <label for="number2">Number of Monster Parts</label>
-            <input type="number" title="number2" placeholder="6"id="monParts" min="1" size="3" value="6">
+            <label for="number2" style="display: none;">Number of Monster Parts</label>
+            <input type="number" title="number2" placeholder="0"id="monParts" style="display:none" min="1" size="3">
             <br>
             <label for="number3">Number of Players</label>
-            <input type="number" title="number3" placeholder="4"id="playerCount" min="1" size="3" value="4">
+            <input type="number" title="number3" placeholder="0"id="playerCount" min="1" size="3">
             <br><br>
         </form>
     </div>
+<button id="update">Update</button>
     <div>
-        <button id="update">Update</button>
         <br><br>
-        <p>HP Adjusted for Player Count</p>
-        <p id="totalHP"></p>
-        <p>Head HP</p>
-        <p id="headHP"></p>
-        <p>Wing HP</p>
-        <p id="wingHP"></p>
-        <p>Back HP</p>
-        <p id="backHP"></p>
-        <p>Foreleg HP</p>
-        <p id="foreHP"></p>
-        <p>Hindleg HP</p>
-        <p id="hindHP"></p>
-        <p>Tail HP</p>
-        <p id="tailHP"></p>
-    </div>    
+        <label for="number4S">HP (Adjusted for Player Count)</label>
+        <input type="number" title="number4" placeholder="0"id="totalHP" min="1" size="3">
+        <label for="check1" class="label">Head HP</label>
+        <input type="checkbox" title="check1" id="headCheck" class="input" name="checked">
+        <input type="number" title="number5" placeholder="0"id="headHP"  min="1" size="3" class="input" name="partHPDisplay">
+        <br>
+        <br>
+        <br>
+        <label for="check2" class="label">Wing HP</label>
+        <input type="checkbox" title="check2" id="wingCheck" class="input" name="checked">
+        <input type="number" title="number6" placeholder="0"id="wingHP" min="1" size="3" class="input" name="partHPDisplay">
+        <br>
+        <br>
+        <br>
+        <label for="check3" class="label">Back HP</label>
+        <input type="checkbox" title="check3" id="backCheck" class="input" name="checked">
+        <input type="number" title="number7" placeholder="0"id="backHP" min="1" size="3"  class="input" name="partHPDisplay">
+        <br>
+        <br>
+
+        <label for="check4" class="label">Foreleg HP</label>
+        <input type="checkbox" title="check4" id="foreCheck" class="input" name="checked">
+        <input type="number" title="number8" placeholder="0"id="foreHP" min="1" size="3"  class="input" name="partHPDisplay">
+        <br>
+        <br>
+
+        <label for="check5" class="label">Hindleg HP</label>
+        <input type="checkbox" title="check5" id="hindCheck" class="input" name="checked">
+        <input type="number" title="number8" placeholder="0"id="hindHP" min="1" size="3" class="input" name="partHPDisplay">
+        <br>
+        <br>
+
+        <label for="check6" class="label">Tail HP</label>
+        <input type="checkbox" title="check6" id="tailCheck" class="input" name="checked">
+        <input type="number" title="number9" placeholder="0"id="tailHP" min="1" size="3"  class="input" name="partHPDisplay">
+</div>
     </body>
     <script>
         var bHP ;
@@ -57,64 +87,166 @@
         var basePHP ;
         var newMaxHP ;
         var headHP  ;
+        var checkHead ;
         var wingHP ;
         var backHP ;
         var foreHP ;
         var hindHP ;
         var tailHP ;
+        //Button
         var x =document.getElementById("update");
-        x.addEventListener("click",save);
-        x.addEventListener("click",save2);
-        x.addEventListener("click",save3);
-        x.addEventListener("click",cal1);
-        x.addEventListener("click",caladjHP);
-        x.addEventListener("click",calhead);
-        x.addEventListener("click",calwing);
-        x.addEventListener("click",calhind);
-        x.addEventListener("click",calfore);
-        x.addEventListener("click",caltail);
-        x.addEventListener("click",calback);
-        
+            x.addEventListener("click",save);
+            x.addEventListener("click",save3);
+            x.addEventListener("click",cal1);
+            x.addEventListener("click",caladjHP);
+            x.addEventListener("click",calhind);
+            x.addEventListener("click",calHind);
+            x.addEventListener("click",calfore);
+            x.addEventListener("click",calFore);
+            x.addEventListener("click",caltail);
+            x.addEventListener("click",calTail);
+            x.addEventListener("click",calback);
+            x.addEventListener("click",calBack);
+            x.addEventListener("click",calwing);
+            x.addEventListener("click",calWing);
+            x.addEventListener("click",calhead);
+            x.addEventListener("click",calHead);
+            x.addEventListener("click",loadBoxes);
+            //Checkboxes
+        var d = document.getElementById("hindCheck");
+            d.addEventListener("click",partCheck);
+            d.addEventListener("click",saveBoxes);
+        var c = document.getElementById("foreCheck");
+            c.addEventListener("click",partCheck);
+            c.addEventListener("click",saveBoxes);
+        var b = document.getElementById("tailCheck");
+            b.addEventListener("click",partCheck);
+            b.addEventListener("click",saveBoxes);
+        var a = document.getElementById("backCheck");
+            a.addEventListener("click",partCheck);
+            a.addEventListener("click",saveBoxes);
+        var w = document.getElementById("wingCheck");
+            w.addEventListener("click",partCheck);
+            w.addEventListener("click",saveBoxes);
+        var y = document.getElementById("headCheck");
+            y.addEventListener("click",partCheck);
+            y.addEventListener("click",saveBoxes);
+        //functions
         function save(){
           bHP = document.getElementById("baseHP").value;
     }
-        function save2(){
-          mPts = document.getElementById("monParts").value;
-    }
         function save3(){
           pCount = document.getElementById("playerCount").value;
-    }
+}
         function cal1(){
           basePHP = bHP / mPts;
-    }
+}
         function caladjHP(){
           newMaxHP = bHP * pCount;
-    }
+}
         function calhead(){
-          headHP=basePHP * 3 ;
-    }
+        headHP=basePHP * 3 ;
+}   
+        function calHead(){
+        var checkBox = document.getElementById("headCheck"); 
+        if (checkBox.checked == false){
+        headHP=basePHP * 3 ;
+        }
+}
         function calback(){
-          backHP=basePHP * 2.5 ;
-    }
+        backHP=basePHP * 2.5 ;
+}
+        function calBack(){
+        var checkBox = document.getElementById("backCheck"); 
+        if (checkBox.checked == false){
+        backHP=basePHP * 0 ;
+        }
+}
         function caltail(){
-          tailHP=basePHP * 2 ;
+        tailHP=basePHP * 2 ;
+}
+        function calTail(){
+        var checkBox = document.getElementById("tailCheck"); 
+        if (checkBox.checked == false){
+        tailHP=basePHP * 0 ;
+        }
+}
+        function calfore(){   
+        foreHP=basePHP * 1.5
+}
+        function calFore(){
+        var checkBox = document.getElementById("foreCheck"); 
+        if (checkBox.checked == false){
+        foreHP=basePHP * 0;
     }
-        function calfore(){
-          foreHP=basePHP * 1.5 ;
-    }
+}
+        
         function calhind(){
-          hindHP=basePHP * 1.75 ;
-    }
+        hindHP=basePHP * 1.75 ;
+}
+        function calHind(){
+        var checkBox = document.getElementById("hindCheck"); 
+        if (checkBox.checked == false){
+        hindHP=basePHP * 0 ;
+        } 
+}
         function calwing(){
-          wingHP=basePHP * 2 ;
-    };
-
-    document.getElementById("totalHP").innerHTML=newMaxHP
-    document.getElementById("headHP").innerHTML=Math.round(headHP)
-    document.getElementById("wingHP").innerHTML=Math.round(wingHP)
-    document.getElementById("backHP").innerHTML=Math.round(backHP)
-    document.getElementById("foreHP").innerHTML=Math.round(foreHP)
-    document.getElementById("hindHP").innerHTML=Math.round(hindHP)
-    document.getElementById("tailHP").innerHTML=Math.round(tailHP)
-        </script>
-    </html>
+        wingHP=basePHP * 2 ;
+}
+        function calWing(){
+        var checkBox = document.getElementById("wingCheck"); 
+        if (checkBox.checked == false){
+        wingHP=basePHP * 0 ;
+        }
+}
+        function partCheck(){
+        var checkbox = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        mPts = checkbox
+        document.getElementById("monParts").value=mPts;
+        return mPts
+}
+        function saveBoxes (){
+        var checkHead = document.getElementById("headCheck"); 
+        localStorage.setItem("checkedHead", checkHead.checked);
+        var checkWing = document.getElementById("wingCheck"); 
+        localStorage.setItem("checkedWing", checkWing.checked);
+        var checkFore = document.getElementById("foreCheck"); 
+        localStorage.setItem("checkedFore", checkFore.checked);
+        var checkHind = document.getElementById("hindCheck"); 
+        localStorage.setItem("checkedHind", checkHind.checked);
+        var checkTail = document.getElementById("tailCheck"); 
+        localStorage.setItem("checkedTail", checkTail.checked);
+        var checkBack = document.getElementById("backCheck"); 
+        localStorage.setItem("checkedBack", checkBack.checked);                  
+}
+        function loadBoxes(){        
+        var selCheck1 = document.getElementById("headCheck");
+        selCheck1.checked = (localStorage.getItem('checkedHead') == "true");
+        var selCheck2 = document.getElementById("wingCheck");
+        selCheck2.checked = (localStorage.getItem('checkedWing') == "true");
+        var selCheck3 = document.getElementById("backCheck");
+        selCheck3.checked = (localStorage.getItem('checkedBack') == "true");
+        var selCheck4 = document.getElementById("foreCheck");
+        selCheck4.checked = (localStorage.getItem('checkedFore') == "true");
+        var selCheck5 = document.getElementById("hindCheck");
+        selCheck5.checked = (localStorage.getItem('checkedHind') == "true");
+        var selCheck6 = document.getElementById("tailCheck");
+        selCheck6.checked = (localStorage.getItem('checkedTail') == "true");
+}
+loadBoxes();
+//Display and Storage
+    localStorage.setItem("baseHP",bHP.toString());
+    document.getElementById("baseHP").value=localStorage.baseHP;
+    localStorage.setItem("pCts",pCount.toString());
+    document.getElementById("playerCount").value=localStorage.pCts;
+    localStorage.setItem("mPts",mPts.toString())
+    document.getElementById("monParts").value=localStorage.mPts;
+    document.getElementById("totalHP").value=newMaxHP
+    document.getElementById("headHP").value=Math.round(headHP)
+    document.getElementById("wingHP").value=Math.round(wingHP)
+    document.getElementById("backHP").value=Math.round(backHP)
+    document.getElementById("foreHP").value=Math.round(foreHP)
+    document.getElementById("hindHP").value=Math.round(hindHP)
+    document.getElementById("tailHP").value=Math.round(tailHP)
+    </script>
+</html>
